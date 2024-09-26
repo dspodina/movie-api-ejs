@@ -4,17 +4,15 @@ import movieControllers from '../controllers/movie.js';
 
 const router = express.Router();
 
-const {getMovie, getMovies, addMovie, updateMovie, deleteMovie} = movieControllers;
+const {getAllMovies, getMovie, addMovie, updateMovie, deleteMovie} = movieControllers;
 
 
 // Movie routes
-router.get("/", getMovie)
-router.get("/:id", getMovies)
-router.post("/", addMovie)
-router.put("/:id", updateMovie)
-router.delete("/:id", deleteMovie)
-
-
+router.get("/get/", getAllMovies)
+router.get("/get/:id", getMovie)
+router.post("/post/", addMovie)
+router.put("/update/:id", updateMovie)
+router.delete("/delete/:id", deleteMovie)
 
 
 export default router;
