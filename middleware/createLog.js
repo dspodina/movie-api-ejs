@@ -1,10 +1,10 @@
-import fs from "fs";
-import path, { dirname } from "path";
+import fs from 'fs';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-// construct the path 
-const __filename = fileURLToPath(import.meta.url)
-const PATH = dirname(__filename)
+// construct the path
+const __filename = fileURLToPath(import.meta.url);
+const PATH = dirname(__filename);
 
 const createLog = (req, res, next) => {
     const { method, url } = req;
@@ -22,17 +22,17 @@ const createLog = (req, res, next) => {
     minutes = minutes < 10 ? `0${minutes}` : minutes;
     seconds = seconds < 10 ? `0${seconds}` : seconds;
 
-    const message = `${year}/${month}/${day} ${hours}:${minutes}:${seconds} --- ${method} --- ${url}`
-    console.log(message)
+    const message = `${year}/${month}/${day} ${hours}:${minutes}:${seconds} --- ${method} --- ${url}`;
+    console.log(message);
 
-    const log = `${year}/${month}/${day} ${hours}:${minutes}:${seconds} --- ${method} --- ${url}\n`
-    fs.appendFile(path.join(PATH, "..", "logs", "logs.txt"), log, (err) => {
+    const log = `${year}/${month}/${day} ${hours}:${minutes}:${seconds} --- ${method} --- ${url}\n`;
+    fs.appendFile(path.join(PATH, '..', 'logs', 'logs.txt'), log, (err) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         }
     });
 
     next();
-}
+};
 
 export default createLog;

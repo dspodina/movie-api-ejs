@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <title>Movie API</title>
+    </head>
+    <header>
+        <h1>Movies</h1>
+        <%- include("./includes/nav.ejs")%>
+    </header>
+    <body>
+        <div class="main-container">
+            <div class="movie-container">
+                <h2><%= movie.title %></h2>
+                <p><%= movie.genre %>, <%= movie.year %></p>
+                <img src="<%= movie.img %>" alt="<%= movie.title %>" />
+                <button>
+                    <a href="/api/movies">All movies</a>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
