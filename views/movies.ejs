@@ -27,9 +27,15 @@
                     <button>
                         <a href="/api/movies/<%= movie.id %>">Details</a>
                     </button>
+                    <button>
+                        <a href="/api/update-form/<%= movie.id %>">Update</a>
+                    </button>
+                    <button>
+                        <a href="/api/delete/<%= movie.id %>">Delete</a>
+                    </button>
                 </div>
+            </div>
                 <% }) %>
-        </div>
     </main>
 </body>
 
